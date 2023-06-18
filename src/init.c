@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:54:39 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/17 12:24:13 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 10:34:55 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
+
+/*
+ ** @brief      Init s_philo an array of philosophers.
+ **
+ ** - Each philosopher has two forks that are his
+ **   own fork at left + his neighbor's one at right:
+ **
+ **     i-1   i      i
+ **     RFork Philos LFork
+ **     ------------------
+ **       P2  ← P0 →  P0 (self fork at Left)
+ **       P0  ← P1 →  P1 (self fork at Left)
+ **       P1  ← P2 →  P2 (self fork at Left)
+ **     Where F0 belongs to philo P3.
+ **
+ ** @param[in]  philo a pointer to s_philo struct set to NULL.
+ ** @param[in]  data a pointer to an initialized s_data struct.
+ ** @return     0 if everything went well, otherwise 1.
+ */
 
 int	ft_init_philo(t_philo **philo, t_data *data)
 {
@@ -19,7 +38,7 @@ int	ft_init_philo(t_philo **philo, t_data *data)
 
 	fork = malloc (sizeof (pthread_mutex_t) * ((size_t)data->philo_nb));
 	if (fork == NULL)
-		return (0);
+		return (FAILURE);
 	i = 0;
 	while (i < data->philo_nb)
 		pthread_mutex_init (&fork[i++], NULL);
@@ -38,23 +57,47 @@ int	ft_init_philo(t_philo **philo, t_data *data)
 		(*philo)[i].data = data;
 		i++;
 	}
-	return (1);
+	return (SUCCESS);
 }
+
+/*
+ ** @brief      Init s_data the simulator's mutexes.
+ **
+ ** To make it very easy to add a mutex without losing readability despite the
+ ** array, the amount of mutexes and their name is definied in the header file.
+ **
+ ** @param[in]  data a pointer to an initialized s_data struct.
+ ** @return     0 if everything went well, otherwise 1.
+ */
 
 int	ft_init_data_mutexes(t_data **data)
 {
 	pthread_mutex_t	*mutex;
 	int				i;
 
-	mutex = malloc (sizeof (pthread_mutex_t) * ((size_t)(*data)->philo_nb));
+	mutex = malloc (sizeof (pthread_mutex_t) * ((size_t)M_NUM));
 	if (mutex == NULL)
-		return (0);
+		return (FAILURE);
 	i = 0;
-	while (i < (size_t)(*data)->philo_nb)
+	while (i < M_NUM)
 		pthread_mutex_init (&mutex[i++], NULL);
 	(*data)->mutex = mutex;
-	return (1);
+	return (SUCCESS);
 }
+
+/*
+ ** @brief      Init s_data the simulator's data.
+ **
+ ** Optimize the vizualizer "stairs" pattern:
+ **
+ **    If philo_nb % 2 and time_eat > time_slp
+ **    time_thk = 1 + time_eat - time_slp
+ **
+ ** @param[in]  data a pointer to s_data struct set to NULL.
+ ** @param[in]  ac the number of arguments given at program start.
+ ** @param[in]  av the arguments given at program start.
+ ** @return     0 if everything went well, otherwise 1.
+ */
 
 int	ft_init_data(t_data **data, int ac, char const *const *av)
 {
@@ -70,26 +113,36 @@ int	ft_init_data(t_data **data, int ac, char const *const *av)
 		(*data)->must_eat = -1;
 	if (ac == 6)
 		(*data)->must_eat = (int)ft_atol (av[5]);
-	(*data)->done = 0;
-	(*data)->died = 0;
+	(*data)->done = FALSE;
+	(*data)->died = FALSE;
 	if (ft_init_data_mutexes (data))
-		return (0);
-	return (1);
+		return (FAILURE);
+	return (SUCCESS);
 }
+
+/*
+ ** @brief      Initialize the structs.
+ **
+ ** @param[in]  philo a pointer to s_philo struct set to NULL.
+ ** @param[in]  data a pointer to s_data struct set to NULL.
+ ** @param[in]  ac the number of arguments given at program start.
+ ** @param[in]  av the arguments given at program start.
+ ** @return     0 if everything went well, otherwise 1.
+ */
 
 int	ft_init(t_philo **philo, t_data **data, int ac, char const *const *av)
 {
 	*data = (t_data *)malloc (sizeof (t_data));
 	if (*data == NULL)
-		return (0);
+		return (FAILURE);
 	(*data)->mutex = NULL;
-	if (ft_init_data (data, ac, av) != 1)
-		return (0);
+	if (ft_init_data (data, ac, av) != SUCCESS)
+		return (FAILURE);
 	*philo = (t_philo *)malloc (sizeof (t_philo) * (size_t)(*data)->philo_nb);
 	if (*philo == NULL)
-		return (0);
+		return (FAILURE);
 	(*philo)->fork = NULL;
-	if (ft_init_philo (philo, *data) != 1)
-		return (0);
-	return (1);
+	if (ft_init_philo (philo, *data) != SUCCESS)
+		return (FAILURE);
+	return (SUCCESS);
 }

@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   time_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:23:03 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/17 12:24:10 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 10:45:08 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
+
+/*
+ ** @brief          Return the elapsed time since EPOCH.
+ **
+ ** TODO Handle 'gettimeofday' errors cause they are triggerable from
+ ** the user's side.
+ **
+ ** @return         The elapsed time since EPOCH in millisecond.
+ */
 
 unsigned long	ft_abs_time(void)
 {
@@ -25,6 +34,13 @@ unsigned long	ft_abs_time(void)
 	return (s + u);
 }
 
+/*
+ ** @brief          Return the time elapsed since simulation start.
+ **
+ ** @param[in]      philo the simulation's struct.
+ ** @return         The time elapsed since simulation start in millisecond.
+ */
+
 unsigned long	ft_rel_time(unsigned long begin)
 {
 	unsigned long	abs_time;
@@ -32,6 +48,16 @@ unsigned long	ft_rel_time(unsigned long begin)
 	abs_time = ft_abs_time ();
 	return (abs_time - begin);
 }
+
+/*
+ ** @brief      Sleep in millisec.
+ **
+ ** By dividing my sleep into several parts I correct a little the imprecision
+ ** of USLEEP(3) for the large values. We substract the residualthe rest of imprecision  .
+ **
+ ** @param[in]  msec the time in millisec
+ **
+ */
 
 void	ft_msleep(unsigned long msec)
 {

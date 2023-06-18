@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:24:46 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/17 12:25:45 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 10:46:04 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
+
+/*
+ ** @brief      Convert a numerical string to a long integer value.
+ **
+ ** @param[in]  str the numerical string to convert.
+ ** @return     a long integer value.
+ */
 
 long	ft_atol(char const *str)
 {
@@ -36,12 +43,28 @@ long	ft_atol(char const *str)
 	return (nb * sign);
 }
 
+/*
+ ** @brief      Max value.
+ **
+ ** @param[in]  a a value.
+ ** @param[in]  b a different another value.
+ ** @return     The biggest value.
+ */
+
 int	ft_max(int a, int b)
 {
 	if (b > a)
 		return (b);
 	return (a);
 }
+
+/*
+ ** @brief      Min value.
+ **
+ ** @param[in]  a a value.
+ ** @param[in]  b a different value.
+ ** @return     The smallest value.
+ */
 
 int	ft_min(int a, int b)
 {
