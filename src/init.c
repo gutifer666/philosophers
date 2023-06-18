@@ -6,30 +6,30 @@
 /*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:54:39 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/18 10:34:55 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:26:30 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
 /*
- ** @brief      Init s_philo an array of philosophers.
- **
- ** - Each philosopher has two forks that are his
- **   own fork at left + his neighbor's one at right:
- **
- **     i-1   i      i
- **     RFork Philos LFork
- **     ------------------
- **       P2  ← P0 →  P0 (self fork at Left)
- **       P0  ← P1 →  P1 (self fork at Left)
- **       P1  ← P2 →  P2 (self fork at Left)
- **     Where F0 belongs to philo P3.
- **
- ** @param[in]  philo a pointer to s_philo struct set to NULL.
- ** @param[in]  data a pointer to an initialized s_data struct.
- ** @return     0 if everything went well, otherwise 1.
- */
+** @brief Inicializa s_philo, un arreglo de filósofos.
+**
+** - Cada filósofo tiene dos tenedores que son su propio
+** tenedor a la izquierda + el tenedor de su vecino a la derecha:
+**
+** 		i-1	  i		  	i
+** 		RFork Filósofos LFork
+** 		---------------------
+** 		  P2  ← P0 →    P0 (tenedor propio a la izquierda)
+** 		  P0  ← P1 →    P1 (tenedor propio a la izquierda)
+** 		  P1  ← P2 →    P2 (tenedor propio a la izquierda)
+** 		Donde F0 pertenece al filósofo P3.
+**
+** @param[in] philo un puntero a la estructura s_philo establecido en NULL.
+** @param[in] data un puntero a una estructura s_data inicializada.
+** @return    0 si todo salió bien, de lo contrario, 1.
+*/
 
 int	ft_init_philo(t_philo **philo, t_data *data)
 {
@@ -61,14 +61,14 @@ int	ft_init_philo(t_philo **philo, t_data *data)
 }
 
 /*
- ** @brief      Init s_data the simulator's mutexes.
- **
- ** To make it very easy to add a mutex without losing readability despite the
- ** array, the amount of mutexes and their name is definied in the header file.
- **
- ** @param[in]  data a pointer to an initialized s_data struct.
- ** @return     0 if everything went well, otherwise 1.
- */
+** @brief	  Inicializa s_data, los mutex del simulador.
+**
+** Para facilitar la adición de un mutex sin perder legibilidad a pesar
+** del arreglo, la cantidad de mutex y sus nombres se definen en el archivo de encabezado.
+**
+** @param[in] data un puntero a una estructura s_data inicializada.
+** @return 	  0 si todo salió bien, de lo contrario, 1.
+*/
 
 int	ft_init_data_mutexes(t_data **data)
 {
@@ -86,18 +86,18 @@ int	ft_init_data_mutexes(t_data **data)
 }
 
 /*
- ** @brief      Init s_data the simulator's data.
- **
- ** Optimize the vizualizer "stairs" pattern:
- **
- **    If philo_nb % 2 and time_eat > time_slp
- **    time_thk = 1 + time_eat - time_slp
- **
- ** @param[in]  data a pointer to s_data struct set to NULL.
- ** @param[in]  ac the number of arguments given at program start.
- ** @param[in]  av the arguments given at program start.
- ** @return     0 if everything went well, otherwise 1.
- */
+** @brief Inicializa s_data, los datos del simulador.
+**
+** Optimiza el patrón "escalera" del visualizador:
+**
+** Si philo_nb % 2 y time_eat > time_slp
+** time_thk = 1 + time_eat - time_slp
+**
+** @param[in] data un puntero a la estructura s_data establecido en NULL.
+** @param[in] ac el número de argumentos proporcionados al inicio del programa.
+** @param[in] av los argumentos proporcionados al inicio del programa.
+** @return    0 si todo salió bien, de lo contrario, 1.
+*/
 
 int	ft_init_data(t_data **data, int ac, char const *const *av)
 {
@@ -121,14 +121,14 @@ int	ft_init_data(t_data **data, int ac, char const *const *av)
 }
 
 /*
- ** @brief      Initialize the structs.
- **
- ** @param[in]  philo a pointer to s_philo struct set to NULL.
- ** @param[in]  data a pointer to s_data struct set to NULL.
- ** @param[in]  ac the number of arguments given at program start.
- ** @param[in]  av the arguments given at program start.
- ** @return     0 if everything went well, otherwise 1.
- */
+** @brief     Inicializa las estructuras.
+**
+** @param[in] philo un puntero a la estructura s_philo establecido en NULL.
+** @param[in] data un puntero a la estructura s_data establecido en NULL.
+** @param[in] ac el número de argumentos proporcionados al inicio del programa.
+** @param[in] av los argumentos proporcionados al inicio del programa.
+** @return    0 si todo salió bien, de lo contrario, 1.
+*/
 
 int	ft_init(t_philo **philo, t_data **data, int ac, char const *const *av)
 {

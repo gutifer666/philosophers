@@ -6,18 +6,18 @@
 /*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:33:47 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/18 10:36:32 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:31:05 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
 /*
- ** @brief      Clear all the program dynamically allocated memory.
- **
- ** @param[in]  philo the simulation's struct.
- ** @param[in]  data the simulator's struct.
- */
+** @brief     Libera toda la memoria asignada dinámicamente por el programa.
+**
+** @param[in] philo la estructura de la simulación.
+** @param[in] data la estructura del simulador.
+*/
 
 static void	ft_clear_memory(t_philo *philo, t_data *data)
 {
@@ -32,15 +32,15 @@ static void	ft_clear_memory(t_philo *philo, t_data *data)
 }
 
 /*
- ** @brief      Handle edge cases.
- **
- ** If the 'must_eat' parameter is set to 0. Or if there is only one
- ** philosopher.
- **
- ** @param[in]  ac the number of arguments given at program start.
- ** @param[in]  av the arguments given at program start.
- ** @return     1 if there are no matching edge case, otherwise 0.
- */
+** @brief     Maneja casos límite.
+**
+** Si el parámetro 'must_eat' se establece en 0. O si solo hay un
+** filósofo.
+**
+** @param[in] ac el número de argumentos proporcionados al inicio del programa.
+** @param[in] av los argumentos proporcionados al inicio del programa.
+** @return    1 si no hay casos límite coincidentes, de lo contrario, 0.
+*/
 
 static int	ft_edgecases(int ac, char const *const *av)
 {
@@ -52,16 +52,16 @@ static int	ft_edgecases(int ac, char const *const *av)
 }
 
 /*
- ** @brief      Start and terminate the program.
- **
- ** Input info:
- **  ./philo philo_nb time_die time_eat time_slp [ must_eat ]
- **  Example: ./philo 4 410 200 200 7
- **
- ** @param[in]  ac the number of arguments given at program start.
- ** @param[in]  av the arguments given at program start.
- ** @return     0 if everything went well, otherwise 1.
- */
+** @brief     Iniciar y finalizar el programa.
+**
+** Información de entrada:
+** ./philo philo_nb time_die time_eat time_slp [ must_eat ]
+** Ejemplo: ./philo 4 410 200 200 7
+**
+** @param[in] ac el número de argumentos proporcionados al inicio del programa.
+** @param[in] av los argumentos proporcionados al inicio del programa.
+** @return    0 si todo salió bien, de lo contrario, 1.
+*/
 
 int	main(int ac, char const *const *av)
 {

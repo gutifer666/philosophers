@@ -6,7 +6,7 @@
 /*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:11:12 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/18 10:32:01 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:19:57 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,22 @@ typedef enum e_exit
  ** =========[ Structures ]========
  */
 
+
 /*
- ** @brief      Simulator's data.
- **
- ** @var        philo_nb the number of philosophers.
- ** @var        time_die the philosophers time to die (in ms).
- ** @var        time_eat the philosophers time to eat (in ms).
- ** @var        time_slp the philosophers time to sleep (in ms).
- ** @var        time_thk the philosophers time to think (in ms).
- ** @var        must_eat the maximum number of times each philo must eat.
- **
- ** @var        simbegin the Epoch time when the simulation starts.
- ** @var        done is true when all philos ate must_eat times, sim stops.
- ** @var        died is true when one philo died, simulation stops.
- ** @var        mutex an array of mutexes for the simulation operations.
- */
+** @brief Datos del simulador.
+**
+** @var		philo_nb 	el número de filósofos.
+** @var		time_die 	el tiempo en milisegundos para que un filósofo muera.
+** @var		time_eat 	el tiempo en milisegundos para que un filósofo coma.
+** @var		time_slp 	el tiempo en milisegundos para que un filósofo duerma.
+** @var 	time_thk 	el tiempo en milisegundos para que un filósofo piense.
+** @var 	must_eat 	el número máximo de veces que cada filósofo debe comer.
+**
+** @var 	simbegin 	el tiempo del EPOCH cuando comienza la simulación.
+** @var 	done 		es verdadero cuando todos los filósofos han comido must_eat veces, la simulación se detiene.
+** @var 	died 		es verdadero cuando un filósofo ha muerto, la simulación se detiene.
+** @var 	mutex 		un arreglo de mutex para las operaciones de la simulación.
+*/
 
 typedef struct s_data
 {
@@ -97,17 +98,18 @@ typedef struct s_data
 
 }					t_data;
 
+
 /*
- ** @brief      Simulation's data.
- **
- ** @var        id the name of the philosopher.
- ** @var        last_meal the Epoch time of the last meal eaten.
- ** @var        meals_counter the number of meals eaten.
- ** @var        lfork philosopher's left fork
- ** @var        rfork philosopher's right fork
- ** @var        fork a mutex that symbolize one fork from philos dining problem.
- ** @var        data the access to s_data parameters.
- */
+** @brief 	Datos de la simulación.
+**
+** @var id 				 el nombre del filósofo.
+** @var last_meal 		 el tiempo del EPOCH de la última comida consumida.
+** @var meals_counter 	 el número de comidas consumidas.
+** @var lfork 			 el tenedor izquierdo del filósofo.
+** @var rfork 			 el tenedor derecho del filósofo.
+** @var fork 			 un mutex que simboliza un tenedor del problema de cena de los filósofos.
+** @var data 			 el acceso a los parámetros de s_data.
+*/
 
 typedef struct s_philo
 {

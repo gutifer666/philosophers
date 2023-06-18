@@ -6,18 +6,19 @@
 /*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:24:46 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/18 10:46:04 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:13:37 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
+
 /*
- ** @brief      Convert a numerical string to a long integer value.
- **
- ** @param[in]  str the numerical string to convert.
- ** @return     a long integer value.
- */
+** @brief     Convertir una cadena numérica a un valor entero largo.
+**
+** @param[in] str la cadena numérica a convertir.
+** @return    un valor entero largo.
+*/
 
 long	ft_atol(char const *str)
 {
@@ -44,12 +45,12 @@ long	ft_atol(char const *str)
 }
 
 /*
- ** @brief      Max value.
- **
- ** @param[in]  a a value.
- ** @param[in]  b a different another value.
- ** @return     The biggest value.
- */
+** @brief     Valor máximo.
+**
+** @param[in] a un valor.
+** @param[in] b otro valor distinto.
+** @return    El valor más grande.
+*/
 
 int	ft_max(int a, int b)
 {
@@ -59,12 +60,12 @@ int	ft_max(int a, int b)
 }
 
 /*
- ** @brief      Min value.
- **
- ** @param[in]  a a value.
- ** @param[in]  b a different value.
- ** @return     The smallest value.
- */
+** @brief     Valor mínimo.
+**
+** @param[in] a un valor.
+** @param[in] b otro valor distinto.
+** @return    El valor más pequeño.
+*/
 
 int	ft_min(int a, int b)
 {

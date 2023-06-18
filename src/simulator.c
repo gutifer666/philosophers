@@ -6,18 +6,18 @@
 /*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 10:43:05 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/18 10:43:49 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:06:34 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
 /*
- ** @brief      Destroy all the mutexes.
- **
- ** @param[in]  philo the simulation's struct.
- ** @param[in]  data the simulator's struct.
- */
+** @brief     Destruir todos los mutex.
+**
+** @param[in] philo la estructura de la simulación.
+** @param[in] data la estructura del simulador.
+*/
 
 static void	ft_destroy_mutexes(t_philo *philo, t_data *data)
 {
@@ -32,12 +32,12 @@ static void	ft_destroy_mutexes(t_philo *philo, t_data *data)
 }
 
 /*
- ** @brief      Check if all philos ate at least 'must_eat' times.
- **
- ** @param[in]  philo the simulation's struct.
- ** @param[in]  data the simulator's struct.
- ** @return     True or false.
- */
+** @brief     Verificar si todos los filósofos han comido al menos 'must_eat' veces.
+**
+** @param[in] philo la estructura de la simulación.
+** @param[in] data la estructura del simulador.
+** @return    Verdadero o falso.
+*/
 
 static int	ft_are_done(t_philo *philo, t_data *data)
 {
@@ -63,15 +63,15 @@ static int	ft_are_done(t_philo *philo, t_data *data)
 }
 
 /*
- ** @brief      Continuously check the simulation's termination conditions.
- **
- ** If one death occurs.
- ** If all the philosophers ate at least 'must_eat' times.
- **
- ** @param[in]  philo the simulation's struct.
- ** @param[in]  data the simulator's struct.
- ** @return     0 if everything went well.
- */
+** @brief     Verificar continuamente las condiciones de terminación de la simulación.
+**
+** Si ocurre una muerte.
+** Si todos los filósofos han comido al menos 'must_eat' veces.
+**
+** @param[in] philo la estructura de la simulación.
+** @param[in] data la estructura del simulador.
+** @return    0 si todo salió bien.
+*/
 
 static int	ft_monitor(t_philo *philo, t_data *data)
 {
@@ -102,17 +102,17 @@ static int	ft_monitor(t_philo *philo, t_data *data)
 }
 
 /*
- ** @brief      Threads manager.
- **
- ** Generate, manage and destroy the simulation required threads.
- **
- ** TODO
- ** Protect 'pthread_create' cause there is a malloc behind.
- **
- ** @param[in]  philo the simulation's struct.
- ** @param[in]  data the simulator's struct.
- ** @return     0 if everything went well, otherwise 1.
- */
+** @brief    Gestor de hilos.
+**
+** Genera, gestiona y destruye los hilos requeridos para la simulación.
+**
+** TODO
+** Proteger 'pthread_create' porque hay un malloc detrás.
+**
+** @param[in] philo la estructura de la simulación.
+** @param[in] data la estructura del simulador.
+** @return    0 si todo salió bien, de lo contrario, 1.
+*/
 
 int	ft_simulator(t_philo *philo, t_data *data)
 {

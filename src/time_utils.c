@@ -6,20 +6,20 @@
 /*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:23:03 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/18 10:45:08 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:11:04 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
 /*
- ** @brief          Return the elapsed time since EPOCH.
- **
- ** TODO Handle 'gettimeofday' errors cause they are triggerable from
- ** the user's side.
- **
- ** @return         The elapsed time since EPOCH in millisecond.
- */
+** @brief  Devuelve el tiempo transcurrido desde el EPOCH.
+**
+** TODO Manejar los errores de 'gettimeofday' ya que pueden ser desencadenados desde
+** el lado del usuario.
+**
+** @return El tiempo transcurrido desde el EPOCH en milisegundos.
+*/
 
 unsigned long	ft_abs_time(void)
 {
@@ -35,11 +35,11 @@ unsigned long	ft_abs_time(void)
 }
 
 /*
- ** @brief          Return the time elapsed since simulation start.
- **
- ** @param[in]      philo the simulation's struct.
- ** @return         The time elapsed since simulation start in millisecond.
- */
+** @brief     Devuelve el tiempo transcurrido desde el inicio de la simulación.
+**
+** @param[in] philo la estructura de la simulación.
+** @return    El tiempo transcurrido desde el inicio de la simulación en milisegundos.
+*/
 
 unsigned long	ft_rel_time(unsigned long begin)
 {
@@ -50,14 +50,12 @@ unsigned long	ft_rel_time(unsigned long begin)
 }
 
 /*
- ** @brief      Sleep in millisec.
- **
- ** By dividing my sleep into several parts I correct a little the imprecision
- ** of USLEEP(3) for the large values. We substract the residualthe rest of imprecision  .
- **
- ** @param[in]  msec the time in millisec
- **
- */
+** @brief     Dormir en milisegundos.
+**
+** Dividiendo mi pausa en varias partes, corrijo un poco la imprecisión de USLEEP(3) para valores grandes. Restamos el residuo, el resto de imprecisión.
+**
+** @param[in] msec el tiempo en milisegundos.
+*/
 
 void	ft_msleep(unsigned long msec)
 {

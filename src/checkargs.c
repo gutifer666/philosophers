@@ -6,18 +6,18 @@
 /*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:49:10 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/18 10:33:33 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:15:55 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
 /*
- ** @brief      Check if a string looks like a positive numeric value.
- **
- ** @param[in]  str the string to check.
- ** @return     True or false.
- */
+** @brief		Verifica si una cadena es un valor numérico positivo.
+**
+** @param[in] 	str la cadena a verificar.
+** @return 		Verdadero o falso.
+*/
 
 static int	ft_is_numeric(char const *str)
 {
@@ -34,12 +34,12 @@ static int	ft_is_numeric(char const *str)
 }
 
 /*
- ** @brief      Check if the user given arguments are valid.
- **
- ** @param[in]  ac the number of arguments given at program start.
- ** @param[in]  av the arguments given at program start.
- ** @return     0 if valid, otherwise 1.
- */
+** @brief		Verifica si los argumentos proporcionados por el usuario son válidos.
+**
+** @param[in] 	ac el número de argumentos proporcionados al inicio del programa.
+** @param[in] 	av los argumentos proporcionados al inicio del programa.
+** @return 		0 si son válidos, de lo contrario, 1.
+*/
 
 int	ft_check_args(int ac, char const *const *av)
 {

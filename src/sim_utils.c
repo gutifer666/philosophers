@@ -6,18 +6,19 @@
 /*   By: frgutier <frgutier@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 10:38:03 by frgutier          #+#    #+#             */
-/*   Updated: 2023/06/18 10:39:13 by frgutier         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:47:07 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
+
 /*
- ** @brief      Log each philosopher's life cycle actions into the terminal.
- **
- ** @param[in]  philo the simulation's struct.
- ** @param[in]  a the philo's action
- */
+** @brief     Registrar las acciones del ciclo de vida de cada filósofo en la terminal.
+**
+** @param[in] philo la estructura de la simulación.
+** @param[in] a la acción del filósofo.
+*/
 
 void	ft_print(t_philo *philo, char const *const a)
 {
@@ -28,10 +29,10 @@ void	ft_print(t_philo *philo, char const *const a)
 }
 
 /*
- ** @brief      Officialise the first death.
- **
- ** @param[in]  data the simulator's struct.
- */
+** @brief     Oficializar la primera muerte.
+**
+** @param[in] data la estructura del simulador.
+*/
 
 void	ft_died(t_data *data)
 {
@@ -41,12 +42,12 @@ void	ft_died(t_data *data)
 }
 
 /*
- ** @brief      Officialise the end of the dinner.
- **
- ** All the philosophers ate at least 'must_eat' times.
- **
- ** @param[in]  data the simulator's struct.
- */
+** @brief     Oficializar el final de la cena.
+**
+** Todos los filósofos han comido al menos 'must_eat' veces.
+**
+** @param[in] data la estructura del simulador.
+*/
 
 void	ft_done(t_data *data)
 {
@@ -56,10 +57,10 @@ void	ft_done(t_data *data)
 }
 
 /*
- ** @brief      Check a death occured.
- **
- ** @param[in]  data the simulator's struct.
- */
+** @brief     Verificar si ha ocurrido una muerte.
+**
+** @param[in] data la estructura del simulador.
+*/
 
 int	ft_check_died(t_philo *philo)
 {
@@ -74,12 +75,12 @@ int	ft_check_died(t_philo *philo)
 }
 
 /*
- ** @brief      Check if the dinner is done.
- **
- ** All the philosophers ate at least 'must_eat' times.
- **
- ** @param[in]  data the simulator's struct.
- */
+** @brief     Verificar si la cena ha finalizado.
+**
+** Todos los filósofos han comido al menos 'must_eat' veces.
+**
+** @param[in] data la estructura del simulador.
+*/
 
 int	ft_check_done(t_philo *philo)
 {
